@@ -123,6 +123,8 @@ def preprocess(datadir, outdir):
     for i in range(1, len(categorial_features) + 1):
         offset = categorial_feature_offset[i - 1] + dict_sizes[i - 1]
         categorial_feature_offset.append(offset)
+        # python 2
+        # for key, val in dicts.dicts[i - 1].iteritems():
         for key, val in dicts.dicts[i - 1].items():
             output.write("{0} {1}\n".format('C' + str(i) + '|' + key, categorial_feature_offset[i - 1] + val + 1))
 
